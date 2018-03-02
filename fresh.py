@@ -10,77 +10,68 @@ db = dbfile.cursor()
 db.execute('''CREATE TABLE IF NOT EXISTS pantry (food text, bbdate text)''')
 
 # Twitter
+# Need to add own Twitter app keys
 from twython import Twython
-app_key = "yodaC1rruBEcrUJkcghvWP6ts"
-app_secret = "L2WQjmWFQA9qJpkRsSIB7JH8c78bO7Mmomf2NWZWHzIGAZdSEL"
-oauth_token = "961317539199451137-PiajpZmSh5AoXzIzBDB11M1xM27c1bq"
-oauth_token_secret = "L6B5RFx7F9qPVl53xmFAoebHKplVDhYRxnu0xl6Wyhf3s"
+app_key = "xxxxxxxxxxEcrUJkcghvWP6ts"
+app_secret = "xxxxxxxxxx9qJpkRsSIB7JH8c78bO7Mmomf2NWZWHzIGAZdSEL"
+oauth_token = "xxxxxxxxxx99451137-PiajpZmSh5AoXzIzBDB11M1xM27c1bq"
+oauth_token_secret = "xxxxxxxxxxqPVl53xmFAoebHKplVDhYRxnu0xl6Wyhf3s"
 twitter = Twython(app_key, app_secret, oauth_token, oauth_token_secret)
 
 thetime = datetime.now().strftime('%-I:%M%P on %d-%m-%Y')
+
 # Global Variables
 food = ''
 bbdate = ''
 
-################################################################################
+
 # Find Food Going Off Tomorrow, Tweet Recipe, Remove From Pantry
-################################################################################
+# Remove coments from twitter lines when correct authorisation keys in place
 
 for row in dbfile.execute("SELECT * FROM pantry WHERE food='Bacon' AND bbdate=date('now','+1 day')"):
     print (row)
-    #twitter.update_status(status="Your bacon is approaching its best before date. Here's a link to some recipes you might like. https://www.bbcgoodfood.com/search/recipes?query=bacon" + thetime)
-    #dbfile.execute("DELETE FROM pantry WHERE food='Bacon' AND bbdate=date('now','+1 day')")
+    #twitter.update_status(status="Your bacon is approaching its best before date. Here's a link to some recipes you might like. https://www.bbcgoodfood.com/search/recipes?query=bacon" + " " + thetime)
     
 for row in dbfile.execute("SELECT * FROM pantry WHERE food='Tomatoes' AND bbdate=date('now','+1 day')"):
     print (row)
-    #twitter.update_status(status="Your tomatoes are approaching their best before date. Here's a link to some recipes you might like. https://www.bbcgoodfood.com/search/recipes?query=tomatoes" + thetime)
-    #dbfile.execute("DELETE FROM pantry WHERE food='Tomatoes' AND bbdate=date('now','+1 day')")
-    
+    #twitter.update_status(status="Your tomatoes are approaching their best before date. Here's a link to some recipes you might like. https://www.bbcgoodfood.com/search/recipes?query=tomatoes" + " " + thetime)
+ 
 for row in dbfile.execute("SELECT * FROM pantry WHERE food='Chicken' AND bbdate=date('now','+1 day')"):
     print (row)
-    #twitter.update_status(status="Your chicken is approaching its best before date. Here's a link to some recipes you might like. https://www.bbcgoodfood.com/search/recipes?query=chicken" + thetime)
-    #dbfile.execute("DELETE FROM pantry WHERE food='Chicken' AND bbdate=date('now','+1 day')")
-    
+    #twitter.update_status(status="Your chicken is approaching its best before date. Here's a link to some recipes you might like. https://www.bbcgoodfood.com/search/recipes?query=chicken" + " " + thetime)
+     
 for row in dbfile.execute("SELECT * FROM pantry WHERE food='Milk' AND bbdate=date('now','+1 day')"):
     print (row)
-    #twitter.update_status(status="Your milk is approaching its best before date. Here's a link to some recipes you might like. https://www.bbcgoodfood.com/search/recipes?query=milk" + thetime)
-    #dbfile.execute("DELETE FROM pantry WHERE food='Milk' AND bbdate=date('now','+1 day')")
-    
+    #twitter.update_status(status="Your milk is approaching its best before date. Here's a link to some recipes you might like. https://www.bbcgoodfood.com/search/recipes?query=milk" + " " + thetime)
+
 for row in dbfile.execute("SELECT * FROM pantry WHERE food='Broccoli' AND bbdate=date('now','+1 day')"):
     print (row)
-    #twitter.update_status(status="Your broccoli is approaching its best before date. Here's a link to some recipes you might like. https://www.bbcgoodfood.com/search/recipes?query=broccoli" + thetime)
-    #dbfile.execute("DELETE FROM pantry WHERE food='Broccoli' AND bbdate=date('now','+1 day')")
+    #twitter.update_status(status="Your broccoli is approaching its best before date. Here's a link to some recipes you might like. https://www.bbcgoodfood.com/search/recipes?query=broccoli" + " " + thetime)
     
 for row in dbfile.execute("SELECT * FROM pantry WHERE food='Peppers' AND bbdate=date('now','+1 day')"):
     print (row)
-    #twitter.update_status(status="Your peppers are approaching their best before date. Here's a link to some recipes you might like. https://www.bbcgoodfood.com/search/recipes?query=peppers" + thetime)
-    #dbfile.execute("DELETE FROM pantry WHERE food='Peppers' AND bbdate=date('now','+1 day')")
-    
+    #twitter.update_status(status="Your peppers are approaching their best before date. Here's a link to some recipes you might like. https://www.bbcgoodfood.com/search/recipes?query=peppers" + " " + thetime)
+     
 for row in dbfile.execute("SELECT * FROM pantry WHERE food='Potatoes' AND bbdate=date('now','+1 day')"):
     print (row)
-    #twitter.update_status(status="Your potatoes are approaching their best before date. Here's a link to some recipes you might like. https://www.bbcgoodfood.com/search/recipes?query=potatoes" + thetime)
-    #dbfile.execute("DELETE FROM pantry WHERE food='Potatoes' AND bbdate=date('now','+1 day')")
-    
+    #twitter.update_status(status="Your potatoes are approaching their best before date. Here's a link to some recipes you might like. https://www.bbcgoodfood.com/search/recipes?query=potatoes" + " " + thetime)
+   
 for row in dbfile.execute("SELECT * FROM pantry WHERE food='Eggs' AND bbdate=date('now','+1 day')"):
     print (row)
-    #twitter.update_status(status="Your eggs are approaching their best before date. Here's a link to some recipes you might like. https://www.bbcgoodfood.com/search/recipes?query=eggs" + thetime)
-    #dbfile.execute("DELETE FROM pantry WHERE food='Eggs' AND bbdate=date('now','+1 day')")
+    #twitter.update_status(status="Your eggs are approaching their best before date. Here's a link to some recipes you might like. https://www.bbcgoodfood.com/search/recipes?query=eggs" + " " + thetime)
     
 for row in dbfile.execute("SELECT * FROM pantry WHERE food='Leeks' AND bbdate=date('now','+1 day')"):
     print (row)
-    #twitter.update_status(status="Your leeks are approaching their best before date. Here's a link to some recipes you might like. https://www.bbcgoodfood.com/search/recipes?query=leeks" + thetime)
-    #dbfile.execute("DELETE FROM pantry WHERE food='Leeks' AND bbdate=date('now','+1 day')")
-    
+    #twitter.update_status(status="Your leeks are approaching their best before date. Here's a link to some recipes you might like. https://www.bbcgoodfood.com/search/recipes?query=leeks" + " " + thetime)
+       
 for row in dbfile.execute("SELECT * FROM pantry WHERE food='Carrots' AND bbdate=date('now','+1 day')"):
     print (row)
-    #twitter.update_status(status="Your carrots are approaching their best before date. Here's a link to some recipes you might like. https://www.bbcgoodfood.com/search/recipes?query=carrots" + thetime)
-    #dbfile.execute("DELETE FROM pantry WHERE food='Carrots' AND bbdate=date('now','+1 day')")
+    #twitter.update_status(status="Your carrots are approaching their best before date. Here's a link to some recipes you might like. https://www.bbcgoodfood.com/search/recipes?query=carrots" + " " + thetime)
     
 dbfile.execute("DELETE FROM pantry WHERE bbdate<=date('now')");
 
-################################################################################
+
 # Add To Pantry
-################################################################################
 
 def add_to_pantry():
 
@@ -104,9 +95,8 @@ def add_to_pantry():
         db.execute(q)
         dbfile.commit()
 
-################################################################################
+
 # Button Commands
-################################################################################
                 
 def add_carrots():
         global food 
@@ -148,9 +138,8 @@ def add_milk():
         global food
         food = 'Milk'
 
-################################################################################
+
 # Build User Interface
-################################################################################
 
 app = App(title="Keeping It Fresh", height=600, width=820)
 
